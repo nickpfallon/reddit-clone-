@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reddit Clone</title>
+  </head>
+  <body>
+    <h1>Welcome to Cleddit</h1>
+
+    <section class="submit-link">
+      <form action="/add-link" method="post">
+        <div>
+          <label for="url">URL</label>
+          <input type="text" name="url" value="">
+        </div>
+        <div>
+          <label for="title">Title</label>
+          <input type="text" name="title" value="">
+        </div>
+        <button>Submit</button>
+      </form>
+    </section>
+
+    <main>
+      {{#each data}}
+      <div class="link">
+        <a href="/upvote/{{this.id}}">-U-</a>
+        <span class="votes">{{this.votes}}</span>
+        <a href="/downvote/{{this.id}}">-D-</a>
+        <span class="title"><a href="{{this.url}}">{{this.title}}</a></span>
+      </div>
+      {{/each}}
+    </main>
+  </body>
+</html>
